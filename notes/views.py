@@ -1,6 +1,6 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
-from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin  # type: ignore
+from django.urls import reverse_lazy  # type: ignore
+from django.views import generic  # type: ignore
 
 from .forms import NoteForm
 from .models import Note
@@ -52,6 +52,7 @@ class NoteDelete(NoteBase, generic.DeleteView):
 class NotesList(NoteBase, generic.ListView):
     """Список всех заметок пользователя."""
     template_name = 'notes/list.html'
+    context_object_name = 'notes_feed'
 
 
 class NoteDetail(NoteBase, generic.DetailView):
